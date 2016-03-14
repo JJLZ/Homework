@@ -5,6 +5,6 @@ inhibit_all_warnings!
 use_frameworks!
 
 target 'Earthquake Monitor' do
-pod 'Alamofire', '~> 3.1.2'
+pod 'Alamofire'
 pod 'SwiftyJSON'
 end

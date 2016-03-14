@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'DEAC56ADA7BF43384AAD6E17'
+               BlueprintIdentifier = '5967A4942A9FABDD0AA23DC8'
                BlueprintName = 'Pods-Earthquake Monitor'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_Earthquake_Monitor.framework'>

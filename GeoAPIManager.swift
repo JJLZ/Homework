@@ -8,27 +8,29 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
 class GeoAPIManager {
     
     static let sharedInstance = GeoAPIManager()
     
     //--newcode now --//
-//    func getLatestReports() -> Void {
+//    func getLatestReports(completionHandler: (Result<[Earthquake], NSError>) -> Void) {
 //        
-//        // TODO: implement
+//        Alamofire.request(GeoRouter.GetAllPastHour())
+//            .responseArray { (response:Response<[Earthquake], NSError>) in
+//                completionHandler(response.result)
+//        }
 //    }
     
     //--newcode now --//
-    func printAllPastHour() -> Void {
-        
-        Alamofire.request(GeoRouter.GetAllPastHour())
-            .responseString { response in
-                if let receivedString = response.result.value {
-                    
-                    print(receivedString)
-                }
-        }
-    }
+//    func printAllPastHour() -> Void {
+//        
+//        Alamofire.request(GeoRouter.GetAllPastHour())
+//            .responseString { response in
+//                if let receivedString = response.result.value {
+//                    
+//                    print(receivedString)
+//                }
+//        }
+//    }
 }
