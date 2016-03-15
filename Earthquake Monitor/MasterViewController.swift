@@ -76,11 +76,11 @@ class MasterViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("CellSummary", forIndexPath: indexPath) as! TableViewCellSummary
         
         let earthquake = earthquakes[indexPath.row]
-        cell.textLabel!.text = earthquake.place
-        cell.detailTextLabel!.text = "Magnitude: \(earthquake.mag!)"
+        cell.lblPlace.text = earthquake.place
+        cell.lblMagnitude.text = "\(earthquake.mag!)"
         
         return cell
     }

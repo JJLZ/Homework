@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		68CBDCEDCC5BB61FF2B0579A /* Pods_Earthquake_Monitor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62799D8FE6E69DE1EBC625F1 /* Pods_Earthquake_Monitor.framework */; };
 		88421AC91C97101A00380E09 /* Earthquake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88421AC81C97101A00380E09 /* Earthquake.swift */; };
+		885E4FA71C98AE9500065480 /* TableViewCellSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885E4FA61C98AE9500065480 /* TableViewCellSummary.swift */; };
 		88FD246C1C96129600D69511 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD246B1C96129600D69511 /* AppDelegate.swift */; };
 		88FD246E1C96129600D69511 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD246D1C96129600D69511 /* MasterViewController.swift */; };
 		88FD24701C96129600D69511 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD246F1C96129600D69511 /* DetailViewController.swift */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		62799D8FE6E69DE1EBC625F1 /* Pods_Earthquake_Monitor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Earthquake_Monitor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88421AC81C97101A00380E09 /* Earthquake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Earthquake.swift; sourceTree = SOURCE_ROOT; };
+		885E4FA61C98AE9500065480 /* TableViewCellSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellSummary.swift; sourceTree = "<group>"; };
 		88FD24681C96129600D69511 /* Earthquake Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Earthquake Monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88FD246B1C96129600D69511 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88FD246D1C96129600D69511 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				88FD246D1C96129600D69511 /* MasterViewController.swift */,
 				88FD246F1C96129600D69511 /* DetailViewController.swift */,
 				88FD24711C96129600D69511 /* Main.storyboard */,
+				885E4FA61C98AE9500065480 /* TableViewCellSummary.swift */,
 				88FD24741C96129600D69511 /* Assets.xcassets */,
 				88FD24761C96129600D69511 /* LaunchScreen.storyboard */,
 				88FD24791C96129600D69511 /* Info.plist */,
@@ -222,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				885E4FA71C98AE9500065480 /* TableViewCellSummary.swift in Sources */,
 				88FD24821C96575900D69511 /* GeoRouter.swift in Sources */,
 				88FD24701C96129600D69511 /* DetailViewController.swift in Sources */,
 				88FD246E1C96129600D69511 /* MasterViewController.swift in Sources */,
