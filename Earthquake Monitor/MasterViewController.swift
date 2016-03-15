@@ -18,10 +18,9 @@ class MasterViewController: UITableViewController {
         
         super.viewDidLoad()
         
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        // Clear title
+        self.navigationItem.title = ""
         
-        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
-        self.navigationItem.rightBarButtonItem = addButton
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
@@ -32,15 +31,14 @@ class MasterViewController: UITableViewController {
         
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
         super.viewWillAppear(animated)
+        
+        // Load Earthquakes info
+        loadEarthquakes()
     }
     
     override func viewDidAppear(animated: Bool) {
         
         super.viewDidAppear(animated)
-        
-        //--newcode now --//
-        // We’d normally do data loading in viewWillAppear so it’s on the screen as soon as possible. But later we’re going to want to pop up a login view if they haven’t logged in already and we can’t present a new view controller until the current view controller has finished appearing. So we’re using viewDidAppear
-        loadEarthquakes()
     }
     
     override func didReceiveMemoryWarning() {
@@ -82,7 +80,7 @@ class MasterViewController: UITableViewController {
         
         let earthquake = earthquakes[indexPath.row]
         cell.textLabel!.text = earthquake.place
-        cell.detailTextLabel!.text = "\(earthquake.mag!) depth:\(earthquake.depth!)"
+        cell.detailTextLabel!.text = "Magnitude: \(earthquake.mag!)"
         
         return cell
     }
@@ -119,12 +117,17 @@ class MasterViewController: UITableViewController {
             }
             
             guard let responseJSON = response.result.value as? [String: AnyObject],
+                let metadata = responseJSON["metadata"] as? [String: AnyObject],
                 results = responseJSON["features"] as? [AnyObject]
                 else {
                     
                     print("Invalid information received from the service")
                     return
             }
+            
+            //-- Get title --
+            self.navigationItem.title = metadata["title"] as? String
+            //--
             
             for item in results {
                 
