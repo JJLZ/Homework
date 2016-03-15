@@ -13,6 +13,7 @@ class TableViewCellSummary: UITableViewCell {
     // MARK: IBOutlets
     @IBOutlet weak var lblMagnitude: UILabel!
     @IBOutlet weak var lblPlace: UILabel!
+    @IBOutlet weak var vBrackground: UIView!
 
     override func awakeFromNib() {
         

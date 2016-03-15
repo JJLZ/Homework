@@ -85,9 +85,13 @@
                                 <rect key="frame" x="0.0" y="86" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pMr-9w-Soj" userLabel="vBrackgorund">
+                                            <rect key="frame" x="0.0" y="0.5" width="523" height="43.5"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZb-IB-fPe" userLabel="lblMagnitude">
                                             <rect key="frame" x="523" y="11" width="42" height="21"/>
                                             <constraints>
@@ -106,10 +110,14 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="WZb-IB-fPe" firstAttribute="bottom" secondItem="znX-t1-Ya6" secondAttribute="bottom" constant="-9" id="11R-gE-fUQ"/>
+                                        <constraint firstItem="pMr-9w-Soj" firstAttribute="top" secondItem="37f-cq-3Eg" secondAttribute="top" id="4BC-ht-SrT"/>
+                                        <constraint firstItem="WZb-IB-fPe" firstAttribute="leading" secondItem="pMr-9w-Soj" secondAttribute="trailing" id="5Vx-xd-gAW"/>
                                         <constraint firstItem="znX-t1-Ya6" firstAttribute="top" secondItem="37f-cq-3Eg" secondAttribute="topMargin" constant="-7" id="GMh-Mg-JCU"/>
+                                        <constraint firstItem="pMr-9w-Soj" firstAttribute="leading" secondItem="37f-cq-3Eg" secondAttribute="leading" id="NZQ-ua-AsR"/>
                                         <constraint firstItem="WZb-IB-fPe" firstAttribute="leading" secondItem="znX-t1-Ya6" secondAttribute="trailing" constant="8" symbolic="YES" id="NaH-rj-qgW"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="WZb-IB-fPe" secondAttribute="trailing" constant="-6" id="VwE-dR-Qp8"/>
                                         <constraint firstItem="WZb-IB-fPe" firstAttribute="centerY" secondItem="37f-cq-3Eg" secondAttribute="centerY" id="hyD-Kx-kmU"/>
+                                        <constraint firstAttribute="bottom" secondItem="pMr-9w-Soj" secondAttribute="bottom" id="ofW-11-drP"/>
                                         <constraint firstItem="znX-t1-Ya6" firstAttribute="leading" secondItem="37f-cq-3Eg" secondAttribute="leadingMargin" id="py0-Lm-Dhe"/>
                                         <constraint firstItem="WZb-IB-fPe" firstAttribute="top" secondItem="znX-t1-Ya6" secondAttribute="top" constant="10" id="uWL-yM-xEh"/>
                                     </constraints>
@@ -118,6 +126,7 @@
                                 <connections>
                                     <outlet property="lblMagnitude" destination="WZb-IB-fPe" id="2cA-Kk-tqN"/>
                                     <outlet property="lblPlace" destination="znX-t1-Ya6" id="Xqc-Gg-kYj"/>
+                                    <outlet property="vBrackground" destination="pMr-9w-Soj" id="0MQ-TC-8Ss"/>
                                     <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail" id="6S0-TO-JiA"/>
                                 </connections>
                             </tableViewCell>
