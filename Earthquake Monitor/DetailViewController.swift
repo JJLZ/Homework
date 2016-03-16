@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import MapKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var lblPlace: UILabel!
     @IBOutlet weak var lblMag: UILabel!
     @IBOutlet weak var lblDepth: UILabel!
     @IBOutlet weak var lblDate: UILabel!
+    
+    @IBOutlet weak var mapView: MKMapView!
     
     var earthquake:Earthquake!
     
@@ -34,10 +37,62 @@ class DetailViewController: UIViewController {
         let strDate = dateFormatter.stringFromDate(date)
         lblDate.text = strDate
         //--
+
+        //--newcode faltan cosas --//
+        //-- Add annotation --
+        self.mapView.delegate = self
+        
+        let annotation = MKPointAnnotation()
+        
+        // Get location
+        let location = CLLocationCoordinate2D(latitude: earthquake.latitude!, longitude: earthquake.longitude!)
+        annotation.coordinate = location
+        
+        annotation.title = "Epicenter"
+        
+        let span = MKCoordinateSpan(latitudeDelta: 20, longitudeDelta: 20)
+        let region = MKCoordinateRegion(center: location, span: span)
+//        let region = MKCoordinateRegionMakeWithDistance(location, 100000, 100000)
+        self.mapView.setRegion(region, animated: true)
+        
+        // Display the annotation
+        self.mapView.showsScale = true
+        self.mapView.showAnnotations([annotation], animated: true)
+        self.mapView.selectAnnotation(annotation, animated: true)
+        //--
     }
 
     override func didReceiveMemoryWarning() {
         
+    }
+    
+    // MARK: MKMapViewDelegate
+    
+    /**
+    Used to change the color of the pin
+    */
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        let identifier = "MyPin"
+        
+        if annotation.isKindOfClass(MKUserLocation) {
+            
+            return nil
+        }
+        
+        // Reuse the annotation if possible
+        var annotationView:MKPinAnnotationView? = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as? MKPinAnnotationView
+        
+        if annotationView == nil {
+            
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView?.canShowCallout = true
+        }
+
+        // change the color
+        annotationView?.pinTintColor = Singleton.sharedInstance.colorForMagnitude(earthquake.mag!)
+        
+        return annotationView
     }
 }
 

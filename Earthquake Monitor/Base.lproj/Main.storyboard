@@ -114,7 +114,7 @@
                                     <constraint firstAttribute="bottom" secondItem="AS6-5g-gef" secondAttribute="bottom" constant="1" id="xfx-X8-D64"/>
                                 </constraints>
                             </view>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tEf-WO-Myp">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tEf-WO-Myp" userLabel="mapView">
                                 <rect key="frame" x="0.0" y="148" width="600" height="452"/>
                             </mapView>
                         </subviews>
@@ -136,6 +136,7 @@
                         <outlet property="lblDepth" destination="fYH-PJ-mPM" id="7Sh-ZU-1dP"/>
                         <outlet property="lblMag" destination="fE8-fb-ix8" id="lxR-Aa-WKZ"/>
                         <outlet property="lblPlace" destination="b5g-9A-4so" id="oEA-jx-3Wk"/>
+                        <outlet property="mapView" destination="tEf-WO-Myp" id="2j6-Cl-WRk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
