@@ -129,7 +129,7 @@ class MasterViewController: UITableViewController {
             // if the response was not successful
             guard response.result.isSuccess else {
                 
-                print("Error while downloading earthquakes info: \(response.result.error)")
+                print("Error while downloading earthquakes info.")
                 
                 //-- NSURLErrorNotConnectedToInternet --
                 if response.result.error?.code  == NSURLErrorNotConnectedToInternet {
@@ -141,7 +141,7 @@ class MasterViewController: UITableViewController {
                     }
                     
                     self.notConnectedBanner = Banner(title: "No Internet Connection",
-                        subtitle: "Can connect with the service. Try again when you're connected to the internet. The last data downloaded will be displayed.", image: nil,
+                        subtitle: "Can't connect with the service. Try again when you're connected to the internet. The last data downloaded will be displayed.", image: nil,
                         backgroundColor: UIColor.orangeColor())
                     self.notConnectedBanner?.dismissesOnSwipe = true
                     self.notConnectedBanner?.show(duration: nil)

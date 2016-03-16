@@ -30,7 +30,7 @@
 		88A13F661C992A69001DDC4D /* GeoRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoRouter.swift; sourceTree = "<group>"; };
 		88A13F671C992A69001DDC4D /* Earthquake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Earthquake.swift; sourceTree = "<group>"; };
 		88A13F6A1C99498B001DDC4D /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
-		88FD24681C96129600D69511 /* Earthquake Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Earthquake Monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		88FD24681C96129600D69511 /* USGS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = USGS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88FD246B1C96129600D69511 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88FD246D1C96129600D69511 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		88FD246F1C96129600D69511 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -68,7 +68,7 @@
 		88FD24691C96129600D69511 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				88FD24681C96129600D69511 /* Earthquake Monitor.app */,
+				88FD24681C96129600D69511 /* USGS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,7 +130,7 @@
 			);
 			name = "Earthquake Monitor";
 			productName = "Earthquake Monitor";
-			productReference = 88FD24681C96129600D69511 /* Earthquake Monitor.app */;
+			productReference = 88FD24681C96129600D69511 /* USGS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -354,7 +354,7 @@
 				INFOPLIST_FILE = "Earthquake Monitor/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.emprendesoft.Earthquake-Monitor";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = USGS;
 			};
 			name = Debug;
 		};
@@ -366,7 +366,7 @@
 				INFOPLIST_FILE = "Earthquake Monitor/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.emprendesoft.Earthquake-Monitor";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = USGS;
 			};
 			name = Release;
 		};
