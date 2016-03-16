@@ -37,7 +37,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="84"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Depth:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGA-NT-z8A">
-                                        <rect key="frame" x="456" y="35" width="55" height="21"/>
+                                        <rect key="frame" x="446" y="35" width="55" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="eAL-53-sxL"/>
                                             <constraint firstAttribute="width" constant="55" id="uca-3o-BsM"/>
@@ -66,9 +66,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50.0 km" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYH-PJ-mPM" userLabel="lblDepth">
-                                        <rect key="frame" x="519" y="35" width="68" height="21"/>
+                                        <rect key="frame" x="509" y="35" width="78" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="68" id="0wz-RC-DEy"/>
+                                            <constraint firstAttribute="width" constant="78" id="0wz-RC-DEy"/>
                                             <constraint firstAttribute="height" constant="21" id="mi4-Ey-59G"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -215,6 +215,17 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Wm0-dp-PW0">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <attributedString key="attributedTitle">
+                            <fragment content="Refreshing ...">
+                                <attributes>
+                                    <font key="NSFont" metaFont="smallSystem"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>

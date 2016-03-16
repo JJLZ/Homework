@@ -13,6 +13,8 @@ class MasterViewController: UITableViewController {
     
     var detailViewController: DetailViewController? = nil
     var earthquakes = [Earthquake]()
+        
+    // MARK: ViewController lifecycle
     
     override func viewDidLoad() {
         
@@ -20,9 +22,13 @@ class MasterViewController: UITableViewController {
         
         // Clear title
         self.navigationItem.title = ""
+        
+        // To refresh data
+        self.refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
     }
     
     override func viewWillAppear(animated: Bool) {
+        
         super.viewWillAppear(animated)
         
         // Load Earthquakes info
@@ -99,6 +105,15 @@ class MasterViewController: UITableViewController {
     @IBAction func refreshData(sender: AnyObject) {
         
         loadEarthquakes()
+    }
+    
+    /**
+     Refresh data using UIRefreshControl
+     */
+    func refresh(sender:AnyObject)
+    {
+        loadEarthquakes()
+        self.refreshControl?.endRefreshing()
     }
     
     // MARK: JSON

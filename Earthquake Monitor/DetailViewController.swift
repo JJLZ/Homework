@@ -38,22 +38,20 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
         lblDate.text = strDate
         //--
 
-        //--newcode faltan cosas --//
-        //-- Add annotation --
+        //-- Show epicenter on map --
         self.mapView.delegate = self
-        
-        let annotation = MKPointAnnotation()
         
         // Get location
         let location = CLLocationCoordinate2D(latitude: earthquake.latitude!, longitude: earthquake.longitude!)
-        annotation.coordinate = location
         
-        annotation.title = "Epicenter"
-        
-        let span = MKCoordinateSpan(latitudeDelta: 20, longitudeDelta: 20)
+        let span = MKCoordinateSpanMake(10, 10)
         let region = MKCoordinateRegion(center: location, span: span)
-//        let region = MKCoordinateRegionMakeWithDistance(location, 100000, 100000)
         self.mapView.setRegion(region, animated: true)
+        
+        // Add annotation
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = location
+        annotation.title = "Epicenter"
         
         // Display the annotation
         self.mapView.showsScale = true
