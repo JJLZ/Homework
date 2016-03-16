@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		68CBDCEDCC5BB61FF2B0579A /* Pods_Earthquake_Monitor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62799D8FE6E69DE1EBC625F1 /* Pods_Earthquake_Monitor.framework */; };
+		88145BAE1C99EC9600D380A1 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88145BAD1C99EC9600D380A1 /* PersistenceManager.swift */; };
 		885E4FA71C98AE9500065480 /* TableViewCellSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885E4FA61C98AE9500065480 /* TableViewCellSummary.swift */; };
 		885E4FA91C9919B100065480 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885E4FA81C9919B100065480 /* MapKit.framework */; };
 		88A13F681C992A69001DDC4D /* GeoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A13F661C992A69001DDC4D /* GeoRouter.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		62799D8FE6E69DE1EBC625F1 /* Pods_Earthquake_Monitor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Earthquake_Monitor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88145BAD1C99EC9600D380A1 /* PersistenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		885E4FA61C98AE9500065480 /* TableViewCellSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellSummary.swift; sourceTree = "<group>"; };
 		885E4FA81C9919B100065480 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		88A13F661C992A69001DDC4D /* GeoRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoRouter.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				88FD24741C96129600D69511 /* Assets.xcassets */,
 				88FD24761C96129600D69511 /* LaunchScreen.storyboard */,
 				88FD24791C96129600D69511 /* Info.plist */,
+				88145BAD1C99EC9600D380A1 /* PersistenceManager.swift */,
 			);
 			path = "Earthquake Monitor";
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				88A13F681C992A69001DDC4D /* GeoRouter.swift in Sources */,
 				88A13F6B1C99498B001DDC4D /* Singleton.swift in Sources */,
 				885E4FA71C98AE9500065480 /* TableViewCellSummary.swift in Sources */,
+				88145BAE1C99EC9600D380A1 /* PersistenceManager.swift in Sources */,
 				88FD24701C96129600D69511 /* DetailViewController.swift in Sources */,
 				88FD246E1C96129600D69511 /* MasterViewController.swift in Sources */,
 				88A13F691C992A69001DDC4D /* Earthquake.swift in Sources */,

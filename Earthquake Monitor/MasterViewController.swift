@@ -8,12 +8,14 @@
 
 import UIKit
 import Alamofire
+import BRYXBanner
 
 class MasterViewController: UITableViewController {
     
     var detailViewController: DetailViewController? = nil
     var earthquakes = [Earthquake]()
-        
+    var notConnectedBanner: Banner?
+    
     // MARK: ViewController lifecycle
     
     override func viewDidLoad() {
@@ -128,6 +130,28 @@ class MasterViewController: UITableViewController {
             guard response.result.isSuccess else {
                 
                 print("Error while downloading earthquakes info: \(response.result.error)")
+                
+                //-- NSURLErrorNotConnectedToInternet --
+                if response.result.error?.code  == NSURLErrorNotConnectedToInternet {
+                    
+                    // check for existing banner
+                    if let existingBanner = self.notConnectedBanner {
+                        
+                        existingBanner.dismiss()
+                    }
+                    
+                    self.notConnectedBanner = Banner(title: "No Internet Connection",
+                        subtitle: "Can connect with the service. Try again when you're connected to the internet. The last data downloaded will be displayed.", image: nil,
+                        backgroundColor: UIColor.orangeColor())
+                    self.notConnectedBanner?.dismissesOnSwipe = true
+                    self.notConnectedBanner?.show(duration: nil)
+                    
+                    //-- Load cache --
+                    self.readCacheEarthquakes()
+                    //--
+                }
+                //--
+                
                 return
             }
             
@@ -140,13 +164,21 @@ class MasterViewController: UITableViewController {
                     return
             }
             
-            //--newcode test cache --
-            writeJSONCache(responseJSON)
-            //--
-            
             //-- Get title --
             self.navigationItem.title = metadata["title"] as? String
             //--
+            
+            if results.count < 1 {
+                
+                // Set title and exit
+                self.navigationItem.title = "There is not data to display"
+                return
+            } else {
+                
+                //-- Save the last succesfully info downloaded --
+                PersistenceManager.saveNSArray(results, path: self.cacheFilePath())
+                //--
+            }
             
             for item in results {
                 
@@ -168,70 +200,78 @@ class MasterViewController: UITableViewController {
             }
             
             //-- For test row colors --
-//            self.earthquakes.removeAll()
-//            
-//            for var i = 0.0; i < 10; i++ {
-//                
-//                let earthquake = Earthquake()
-//                
-//                earthquake.place = "Moroleon"
-//                earthquake.mag = Float(i + 0.1)
-//                
-//                self.earthquakes.append(earthquake)
-//            }
+            //            self.earthquakes.removeAll()
+            //
+            //            for var i = 0.0; i < 10; i++ {
+            //
+            //                let earthquake = Earthquake()
+            //
+            //                earthquake.place = "Moroleon"
+            //                earthquake.mag = Float(i + 0.1)
+            //
+            //                self.earthquakes.append(earthquake)
+            //            }
             //--
             
             // Reload table view
             NSOperationQueue.mainQueue().addOperationWithBlock({() -> Void in
-            
+                
                 self.tableView.reloadData()
             })
         }
     }
     
-    // MARK: Wirte and Read Cache
+    // MARK: Write and Read Cache
     
-    func jsonCachePath() -> String {
+    func cacheFilePath() -> String {
         
-        let paths = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)
-        let path = paths[0].stringByAppendingString("jsonCache.json")
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentationDirectory, .UserDomainMask, true)
+        let path = paths[0].stringByAppendingString("cache.plist")
         
         return path
     }
     
-    func writeJSONCache(data : NSData) -> Bool {
+    func readCacheEarthquakes() {
         
-        let path = jsonCachePath()
+        self.earthquakes.removeAll()
         
-        let succeeded = data.writeToFile(path, atomically: true)
+        // Download saved data
+        let results = PersistenceManager.loadNSArray(self.cacheFilePath())
         
-        if !(succeeded) {
+        if results?.count < 1 {
             
-            print("Error writing cache")
-            return false
+            // Set title and exit
+            self.navigationItem.title = "There is not info saved"
+            return
         }
         
-        return true
-    }
-    
-    func readJSONCache() -> NSData {
+        // Set title
+        self.navigationItem.title = "Last Earthquakes info saved"
         
-        let path = self.jsonCachePath()
-        let pathURL = NSURL(string: path)
-        
-        var jsonData:NSData? = nil
-        do {
-            jsonData = try NSData(contentsOfURL: pathURL!, options: NSDataReadingOptions.DataReadingMappedIfSafe)
+        for item in results! {
+            
+            if let properties = item["properties"] as? NSDictionary, let geometry = item["geometry"] as? NSDictionary {
+                
+                let earthquake = Earthquake()
+                
+                earthquake.place = properties["place"] as? String
+                earthquake.mag = properties["mag"] as? Float
+                earthquake.time = properties["time"] as? Double
+                
+                let point = geometry["coordinates"] as! NSArray
+                earthquake.longitude = point[0] as? Double
+                earthquake.latitude = point[1] as? Double
+                earthquake.depth = point[2] as? Float
+                
+                self.earthquakes.append(earthquake)
+            }
         }
-        catch {
-            print("Error reading cache: \(error)")
-        }
         
-//        if let data = optData {
-//            // Convert data to JSON here
-//        }
-        
-        return jsonData!
+        // Reload table view
+        NSOperationQueue.mainQueue().addOperationWithBlock({() -> Void in
+            
+            self.tableView.reloadData()
+        })
     }
 }
 
