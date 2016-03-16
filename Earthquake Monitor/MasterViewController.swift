@@ -139,7 +139,14 @@ class MasterViewController: UITableViewController {
         }
     }
     
-    // MARK: Data
+    // MARK: Actions
+    
+    @IBAction func refreshData(sender: AnyObject) {
+        
+        loadEarthquakes()
+    }
+    
+    // MARK: JSON
     
     func loadEarthquakes() {
         
