@@ -140,6 +140,10 @@ class MasterViewController: UITableViewController {
                     return
             }
             
+            //--newcode test cache --
+            writeJSONCache(responseJSON)
+            //--
+            
             //-- Get title --
             self.navigationItem.title = metadata["title"] as? String
             //--
@@ -183,7 +187,52 @@ class MasterViewController: UITableViewController {
                 self.tableView.reloadData()
             })
         }
-    }        
+    }
+    
+    // MARK: Wirte and Read Cache
+    
+    func jsonCachePath() -> String {
+        
+        let paths = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)
+        let path = paths[0].stringByAppendingString("jsonCache.json")
+        
+        return path
+    }
+    
+    func writeJSONCache(data : NSData) -> Bool {
+        
+        let path = jsonCachePath()
+        
+        let succeeded = data.writeToFile(path, atomically: true)
+        
+        if !(succeeded) {
+            
+            print("Error writing cache")
+            return false
+        }
+        
+        return true
+    }
+    
+    func readJSONCache() -> NSData {
+        
+        let path = self.jsonCachePath()
+        let pathURL = NSURL(string: path)
+        
+        var jsonData:NSData? = nil
+        do {
+            jsonData = try NSData(contentsOfURL: pathURL!, options: NSDataReadingOptions.DataReadingMappedIfSafe)
+        }
+        catch {
+            print("Error reading cache: \(error)")
+        }
+        
+//        if let data = optData {
+//            // Convert data to JSON here
+//        }
+        
+        return jsonData!
+    }
 }
 
 //"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
