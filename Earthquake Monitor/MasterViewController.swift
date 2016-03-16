@@ -20,16 +20,9 @@ class MasterViewController: UITableViewController {
         
         // Clear title
         self.navigationItem.title = ""
-        
-        if let split = self.splitViewController {
-            let controllers = split.viewControllers
-            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-        }
     }
     
     override func viewWillAppear(animated: Bool) {
-        
-        self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
         super.viewWillAppear(animated)
         
         // Load Earthquakes info
@@ -50,14 +43,13 @@ class MasterViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue.identifier == "showDetail" {
+        if segue.identifier == "Detail" {
             
             if let indexPath = self.tableView.indexPathForSelectedRow {
+                
                 let earthquake = earthquakes[indexPath.row]
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = earthquake
-                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
-                controller.navigationItem.leftItemsSupplementBackButton = true
+                let destination = segue.destinationViewController as! DetailViewController
+                destination.earthquake = earthquake
             }
         }
     }

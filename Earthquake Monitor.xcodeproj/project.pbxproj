@@ -10,6 +10,7 @@
 		68CBDCEDCC5BB61FF2B0579A /* Pods_Earthquake_Monitor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62799D8FE6E69DE1EBC625F1 /* Pods_Earthquake_Monitor.framework */; };
 		88421AC91C97101A00380E09 /* Earthquake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88421AC81C97101A00380E09 /* Earthquake.swift */; };
 		885E4FA71C98AE9500065480 /* TableViewCellSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885E4FA61C98AE9500065480 /* TableViewCellSummary.swift */; };
+		885E4FA91C9919B100065480 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885E4FA81C9919B100065480 /* MapKit.framework */; };
 		88FD246C1C96129600D69511 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD246B1C96129600D69511 /* AppDelegate.swift */; };
 		88FD246E1C96129600D69511 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD246D1C96129600D69511 /* MasterViewController.swift */; };
 		88FD24701C96129600D69511 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD246F1C96129600D69511 /* DetailViewController.swift */; };
@@ -23,6 +24,7 @@
 		62799D8FE6E69DE1EBC625F1 /* Pods_Earthquake_Monitor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Earthquake_Monitor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88421AC81C97101A00380E09 /* Earthquake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Earthquake.swift; sourceTree = SOURCE_ROOT; };
 		885E4FA61C98AE9500065480 /* TableViewCellSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellSummary.swift; sourceTree = "<group>"; };
+		885E4FA81C9919B100065480 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		88FD24681C96129600D69511 /* Earthquake Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Earthquake Monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88FD246B1C96129600D69511 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88FD246D1C96129600D69511 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				885E4FA91C9919B100065480 /* MapKit.framework in Frameworks */,
 				68CBDCEDCC5BB61FF2B0579A /* Pods_Earthquake_Monitor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,6 +89,7 @@
 		B2C08972E3ED0D4EC64981B4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				885E4FA81C9919B100065480 /* MapKit.framework */,
 				62799D8FE6E69DE1EBC625F1 /* Pods_Earthquake_Monitor.framework */,
 			);
 			name = Frameworks;
