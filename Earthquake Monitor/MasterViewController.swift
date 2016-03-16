@@ -174,6 +174,7 @@ class MasterViewController: UITableViewController {
                     
                     earthquake.place = properties["place"] as? String
                     earthquake.mag = properties["mag"] as? Float
+                    earthquake.time = properties["time"] as? Double
                     
                     let point = geometry["coordinates"] as! NSArray
                     earthquake.longitude = point[0] as? Float

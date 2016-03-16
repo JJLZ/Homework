@@ -12,6 +12,7 @@ class Earthquake {
     
     var place: String?
     var mag: Float?
+    var time: Double?
     var longitude: Float?
     var latitude: Float?
     var depth: Float?

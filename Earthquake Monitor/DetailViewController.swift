@@ -10,11 +10,30 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    @IBOutlet weak var lblPlace: UILabel!
+    @IBOutlet weak var lblMag: UILabel!
+    @IBOutlet weak var lblDepth: UILabel!
+    @IBOutlet weak var lblDate: UILabel!
+    
     var earthquake:Earthquake!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        //-- Show basic info --
+        lblPlace.text = earthquake.place
+        lblMag.text = String(earthquake.mag!) + " ML"
+        lblDepth.text = String(earthquake.depth!) + " km"
+        
+        // Date And Time
+        let timestamp = earthquake.time! / 1000
+        let date = NSDate(timeIntervalSince1970:timestamp)
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy - HH:mm"
+        let strDate = dateFormatter.stringFromDate(date)
+        lblDate.text = strDate
+        //--
     }
 
     override func didReceiveMemoryWarning() {
